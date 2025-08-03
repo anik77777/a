@@ -14,7 +14,6 @@
       text-align: center;
     }
 
-    /* INTRO SCREEN */
     #intro {
       position: fixed;
       top: 0; left: 0;
@@ -43,7 +42,6 @@
       }
     }
 
-    /* HEART ANIMATION */
     .heart {
       position: fixed;
       top: -50px;
@@ -58,7 +56,6 @@
       100% { transform: translateY(110vh) rotate(360deg); }
     }
 
-    /* PAGE CONTENT */
     #main {
       display: none;
       padding: 60px 20px;
@@ -126,7 +123,6 @@
     }
 
     audio { display: none; }
-
   </style>
 </head>
 <body>
@@ -153,36 +149,38 @@
 
   <!-- 🌹 MAIN CONTENT -->
   <div id="main">
-  <div class="page active">
-    <span class="glow-text">Oi Eve, hoje é o seu dia especial...</span><br>
-    <img src="https://i.postimg.cc/rFLG1gw2/1200px-Rapunzel-KHIII.png" style="max-width: 100%; margin-top: 20px;">
-  </div>
-  <div class="page">
-    <span class="glow-text">Quero te dizer que você é uma pessoa incrível...</span><br>
-    <img src="https://i.postimg.cc/28c6k8J9/images-1-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
-  </div>
-  <div class="page">
-    <span class="glow-text">Cada momento com você é mágico e inesquecível...</span><br>
-    <img src="https://i.postimg.cc/hvN5smv3/f2-Qo-XHi-AE8gg4-YJNs-T7dv-Hg-HGunu9q-QGx-CEPa-Hyox-Ac-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
-  </div>
-  <div class="page">
-    <span class="glow-text">Neste dia especial, eu só quero te fazer sorrir...</span><br>
-    <img src="https://i.postimg.cc/nhxJt8VS/ariel-human-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
-  </div>
-  <div class="page">
-    <span class="glow-text">Você merece todo o amor do mundo ❤️</span><br>
-    <img src="https://i.postimg.cc/1zzb9skB/640-Aurora-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
-  </div>
-  <div class="page">
-    <span class="glow-text">Feliz aniversário, princesa 🌸</span>
-  </div>
-  <div class="page">
-    <span class="glow-text">Com carinho, de alguém que se importa muito com você – ANIK</span>
+    <div class="page active">
+      <span class="glow-text">Oi Eve, hoje é o seu dia especial...</span><br>
+      <img src="https://i.postimg.cc/rFLG1gw2/1200px-Rapunzel-KHIII.png" style="max-width: 100%; margin-top: 20px;">
+    </div>
+    <div class="page">
+      <span class="glow-text">Quero te dizer que você é uma pessoa incrível...</span><br>
+      <img src="https://i.postimg.cc/28c6k8J9/images-1-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
+    </div>
+    <div class="page">
+      <span class="glow-text">Cada momento com você é mágico e inesquecível...</span><br>
+      <img src="https://i.postimg.cc/hvN5smv3/f2-Qo-XHi-AE8gg4-YJNs-T7dv-Hg-HGunu9q-QGx-CEPa-Hyox-Ac-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
+    </div>
+    <div class="page">
+      <span class="glow-text">Neste dia especial, eu só quero te fazer sorrir...</span><br>
+      <img src="https://i.postimg.cc/nhxJt8VS/ariel-human-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
+    </div>
+    <div class="page">
+      <span class="glow-text">Você merece todo o amor do mundo ❤️</span><br>
+      <img src="https://i.postimg.cc/1zzb9skB/640-Aurora-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
+    </div>
+    <div class="page">
+      <span class="glow-text">Feliz aniversário, princesa 🌸</span>
+    </div>
+    <div class="page">
+      <span class="glow-text">Com carinho, de alguém que se importa muito com você – ANIK</span>
+    </div>
+
+    <button onclick="nextPage()">Próximo</button>
   </div>
 
-  <button onclick="nextPage()">Próximo</button>
-</div>
-    // 🎆 FIREWORKS IN INTRO
+  <!-- ✅ JAVASCRIPT SECTION -->
+  <script>
     function showFireworks() {
       for (let i = 0; i < 20; i++) {
         const f = document.createElement("div");
@@ -194,7 +192,6 @@
       }
     }
 
-    // 🔁 TRANSITION TO MAIN AFTER 5 SECONDS
     setTimeout(() => {
       document.getElementById("intro").style.display = "none";
       document.getElementById("main").style.display = "block";
@@ -202,7 +199,6 @@
 
     showFireworks();
 
-    // ➡️ PAGE NAVIGATION
     const pages = document.querySelectorAll(".page");
     let current = 0;
     function nextPage() {
@@ -218,5 +214,6 @@
 
 </body>
 </html>
+
 
 
