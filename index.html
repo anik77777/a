@@ -7,148 +7,155 @@
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to top right, #ffcccc, #ffe6f0);
       font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff);
       color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
+      text-align: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
     }
+
     .page {
       display: none;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
+
     .page.active {
-      display: flex;
-      animation: fadeIn 1s;
+      display: block;
     }
+
     button {
       margin-top: 30px;
-      padding: 10px 20px;
-      font-size: 16px;
+      font-size: 1rem;
+      padding: 12px 25px;
       border: none;
-      background: #ff6699;
-      color: white;
       border-radius: 20px;
+      background-color: #ff6699;
+      color: white;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
+
+    button:hover {
+      background-color: #e05588;
     }
-    p {
-      font-size: 18px;
-      line-height: 1.5;
+
+    img {
+      margin-top: 30px;
+      max-width: 300px;
+      border-radius: 30px;
+      transition: opacity 0.6s ease-in-out;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hearts {
-      position: absolute;
-      width: 100%;
-      height: 100%;
+
+    #hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
       z-index: -1;
     }
+
     .heart {
       position: absolute;
       width: 20px;
       height: 20px;
-      background: red;
+      background-color: pink;
+      animation: fall 8s linear infinite;
       transform: rotate(45deg);
-      animation: float 8s infinite;
+      opacity: 0.6;
     }
-    .heart::before,
-    .heart::after {
+
+    .heart::before, .heart::after {
       content: "";
       position: absolute;
       width: 20px;
       height: 20px;
-      background: red;
+      background-color: pink;
       border-radius: 50%;
     }
+
     .heart::before {
       top: -10px;
       left: 0;
     }
+
     .heart::after {
-      left: -10px;
       top: 0;
+      left: -10px;
     }
-    @keyframes float {
-      0% {
-        transform: translateY(100%) scale(0.5) rotate(45deg);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100%) scale(1) rotate(45deg);
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
         opacity: 0;
       }
     }
   </style>
 </head>
 <body>
-  <div class="hearts" id="hearts"></div>
 
-  <div class="page active">
-    <h1>EVE 💖</h1>
-    <p>Esta página foi feita apenas para uma pessoa especial...</p>
-    <button onclick="nextPage()">Toque para continuar</button>
-  </div>
+  <div id="hearts"></div>
 
-  <div class="page">
-    <p>Você não sabe disso... mas alguém tem esperado muito tempo para te dizer algo hoje.</p>
-    <button onclick="nextPage()">Próximo</button>
-  </div>
+  <div class="page active">Oi Eve, hoje é o seu dia especial...</div>
+  <div class="page">Quero te dizer que você é uma pessoa incrível...</div>
+  <div class="page">Cada momento com você é mágico e inesquecível...</div>
+  <div class="page">Neste dia especial, eu só quero te fazer sorrir...</div>
+  <div class="page">Você merece todo o amor do mundo ❤️</div>
+  <div class="page">Feliz aniversário, princesa 🌸</div>
+  <div class="page">Com carinho, de alguém que se importa muito com você – ANIK</div>
 
-  <div class="page">
-    <p>Você é mais do que um nome, mais do que um sorriso, mais do que qualquer palavra poderia descrever.</p>
-    <button onclick="nextPage()">Continuar</button>
-  </div>
-
-  <div class="page">
-    <h1>Feliz Aniversário 🎉</h1>
-    <p>Hoje é o seu dia, e tudo que existe de belo deveria te celebrar.</p>
-    <button onclick="nextPage()">Veja seu presente</button>
-  </div>
-
-  <div class="page">
-    <h1>💌</h1>
-    <p>
-      E — Encantadora<br>
-      V — Verdadeira<br>
-      E — Eterna
-    </p>
-    <button onclick="nextPage()">Última página</button>
-  </div>
-
-  <div class="page">
-    <p style="font-size: 22px;"><strong>De: ANIK 🕵️‍♂️<br>
-    ...aquele que sempre observa nas sombras.</strong></p>
-  </div>
+  <button onclick="nextPage()">Próximo</button>
 
   <script>
     const pages = document.querySelectorAll(".page");
     let current = 0;
+
+    const princesses = [
+      "https://www.pngmart.com/files/13/Disney-Princess-PNG-Pic.png",
+      "https://www.pngmart.com/files/13/Disney-Princess-Cinderella-PNG.png",
+      "https://www.pngmart.com/files/13/Ariel-The-Little-Mermaid-PNG-Photos.png",
+      "https://www.pngmart.com/files/13/Belle-Disney-Princess-PNG-Transparent.png",
+      "https://www.pngmart.com/files/13/Jasmine-PNG-Photos.png",
+      "https://www.pngmart.com/files/13/Rapunzel-PNG-Image.png",
+      "https://www.pngmart.com/files/13/Tiana-Disney-Princess-PNG.png",
+    ];
+
+    const princessImg = document.createElement("img");
+    document.body.appendChild(princessImg);
+
+    function showPrincess(index) {
+      if (princesses[index]) {
+        princessImg.src = princesses[index];
+        princessImg.style.opacity = "0";
+        setTimeout(() => {
+          princessImg.style.opacity = "1";
+        }, 100);
+      } else {
+        princessImg.style.display = "none";
+      }
+    }
+
     function nextPage() {
       pages[current].classList.remove("active");
       current++;
       if (pages[current]) {
         pages[current].classList.add("active");
+        showPrincess(current - 1);
+      } else {
+        document.querySelector("button").style.display = "none";
       }
     }
 
-    // Yuraklar yaratish
+    showPrincess(0); // start with first princess
+
     const hearts = document.getElementById('hearts');
     for (let i = 0; i < 30; i++) {
       const heart = document.createElement('div');
@@ -158,5 +165,7 @@
       hearts.appendChild(heart);
     }
   </script>
+
 </body>
 </html>
+
