@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Aniversário, Eve!</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to top right, #ffcccc, #ffe6f0);
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .page.active {
+      display: flex;
+      animation: fadeIn 1s;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background: #ff6699;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 8s infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100%) scale(0.5) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100%) scale(1) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
 
+  <div class="page active">
+    <h1>EVE 💖</h1>
+    <p>Esta página foi feita apenas para uma pessoa especial...</p>
+    <button onclick="nextPage()">Toque para continuar</button>
+  </div>
+
+  <div class="page">
+    <p>Você não sabe disso... mas alguém tem esperado muito tempo para te dizer algo hoje.</p>
+    <button onclick="nextPage()">Próximo</button>
+  </div>
+
+  <div class="page">
+    <p>Você é mais do que um nome, mais do que um sorriso, mais do que qualquer palavra poderia descrever.</p>
+    <button onclick="nextPage()">Continuar</button>
+  </div>
+
+  <div class="page">
+    <h1>Feliz Aniversário 🎉</h1>
+    <p>Hoje é o seu dia, e tudo que existe de belo deveria te celebrar.</p>
+    <button onclick="nextPage()">Veja seu presente</button>
+  </div>
+
+  <div class="page">
+    <h1>💌</h1>
+    <p>
+      E — Encantadora<br>
+      V — Verdadeira<br>
+      E — Eterna
+    </p>
+    <button onclick="nextPage()">Última página</button>
+  </div>
+
+  <div class="page">
+    <p style="font-size: 22px;"><strong>De: ANIK 🕵️‍♂️<br>
+    ...aquele que sempre observa nas sombras.</strong></p>
+  </div>
+
+  <script>
+    const pages = document.querySelectorAll(".page");
+    let current = 0;
+    function nextPage() {
+      pages[current].classList.remove("active");
+      current++;
+      if (pages[current]) {
+        pages[current].classList.add("active");
+      }
+    }
+
+    // Yuraklar yaratish
+    const hearts = document.getElementById('hearts');
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+      hearts.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
