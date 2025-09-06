@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feliz Aniversário, Eve!</title>
+  <title>Professiona ish</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -12,7 +14,7 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       background: radial-gradient(circle, #ff004f, #2e003e);
       color: white;
       overflow: hidden;
@@ -30,14 +32,8 @@
     }
 
     @keyframes float {
-      0% {
-        transform: translateY(100vh) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(0.5);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
     }
 
     #intro {
@@ -48,10 +44,19 @@
       height: 100vh;
       background: black;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       z-index: 10000;
-      flex-direction: column;
+      transition: background 1s ease;
+    }
+
+    #intro h1 {
+      color: #ff80bf;
+      font-size: 2.5rem;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff80bf;
     }
 
     #startBtn {
@@ -74,10 +79,11 @@
       100% { transform: scale(1); }
     }
 
-    video#introVideo {
+    video#introVideo, video#finalVideo {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       max-width: 100vw;
       max-height: 100vh;
       z-index: 10000;
@@ -110,6 +116,7 @@
       font-size: 1.8rem;
       display: block;
       margin-bottom: 10px;
+      font-family: 'Pacifico', cursive;
     }
 
     button#nextPageBtn, #main button {
@@ -128,54 +135,59 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    #finalMessage {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: black;
+      color: #ff80bf;
+      font-size: 3rem;
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      z-index: 9999;
+      padding-top: 30vh;
+      text-shadow: 0 0 20px #fff, 0 0 40px #ff80bf;
+    }
   </style>
 </head>
 <body>
 
   <div id="intro">
-    <button id="startBtn">✨ Clique aqui para começar ✨</button>
+    <h1 id="introTitle">Sen uchun mahsus</h1>
+    <button id="startBtn">✨ Boshlash uchun bos azizim🙂 ✨</button>
     <video id="introVideo" playsinline>
-      <source src="https://files.catbox.moe/j3u7h8.mp4" type="video/mp4">
+      <source src="https://files.catbox.moe/t5iju6.mp4" type="video/mp4">
     </video>
   </div>
 
-  <audio id="bgMusic" src="https://files.catbox.moe/2g8z7v.mp3" loop></audio>
+  <video id="finalVideo" playsinline>
+    <source src="https://files.catbox.moe/ghbwut.mp4" type="video/mp4">
+  </video>
+
+  <audio id="bgMusic" src="https://files.catbox.moe/2z0if5.MP3" loop></audio>
 
   <div id="main">
-    <div class="page active">
-      <span class="glow-text">Oi Eve, hoje é o seu dia especial...</span><br>
-      <img src="https://i.postimg.cc/rFLG1gw2/1200px-Rapunzel-KHIII.png" style="max-width: 100%; margin-top: 20px;">
-    </div>
-    <div class="page">
-      <span class="glow-text">Quero te dizer que você é uma pessoa incrível...</span><br>
-      <img src="https://i.postimg.cc/MKRpJ2Rg/queen-elsa-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
-    </div>
-    <div class="page">
-      <span class="glow-text">Cada momento com você é mágico e inesquecível...</span><br>
-      <img src="https://i.postimg.cc/0QHTXff9/800px-Moana-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
-    </div>
-    <div class="page">
-      <span class="glow-text">Neste dia especial, eu só quero te fazer sorrir...</span><br>
-      <img src="https://i.postimg.cc/nhxJt8VS/ariel-human-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
-    </div>
-    <div class="page">
-      <span class="glow-text">Você merece todo o amor do mundo ❤️</span><br>
-      <img src="https://i.postimg.cc/1zzb9skB/640-Aurora-removebg-preview.png" style="max-width: 70%; margin-top: 20px;">
-    </div>
-    <div class="page">
-      <span class="glow-text">Feliz aniversário, princesa 🌸</span>
-      <img src="https://i.postimg.cc/0yFZ44gW/evolution-of-meridas-art-style-in-disney-princess-franchise-v0-4g01x6ejr8hd1-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
-    </div>
-    <div class="page">
-      <span class="glow-text">Com carinho, de alguém que se importa muito com você – ANIK</span>
-      <img src="https://i.postimg.cc/gjnLHXL5/Chat-GPT-Image-4-2025-00-00-06-removebg-preview.png" style="max-width: 100%; margin-top: 20px;">
-    </div>
+    <div class="page active"><span class="glow-text">Salom,Mening dunyolarga ishonmaydigan malikam...😁</span><br><img src="https://i.postimg.cc/rFLG1gw2/1200px-Rapunzel-KHIII.png" style="max-width: 100%; margin-top: 20px;"></div>
+    <div class="page"><span class="glow-text">Men senga shuni aytmoqchimanki,Seni Sevaman...💖</span><br><img src="https://i.postimg.cc/0yb8CmLN/e0286944cbd74ef1a8c1486ab326db1e-removebg-preview.png" style="max-width: 100%; margin-top: 20px;"></div>
+    <div class="page"><span class="glow-text">Sen bilan o'tgan har lahza men uchun sehrli...</span><br><img src="https://i.postimg.cc/g090tpkS/Vanellope-von-Schweetz-4-29-removebg-preview.png" style="max-width: 50%; margin-top: 20px;"></div>
+    <div class="page"><span class="glow-text">Seni har doim eshitishga va kerak bolganda himoya qilishga har doim tayyorman...</span><br><img src="https://i.postimg.cc/nhxJt8VS/ariel-human-removebg-preview.png" style="max-width: 100%; margin-top: 20px;"></div>
+    <div class="page"><span class="glow-text">Faqat sendan mehr,sevgi,va kerak joyda shirin so'zlaringni istayman ❤️</span><br><img src="https://i.postimg.cc/1zzb9skB/640-Aurora-removebg-preview.png" style="max-width: 70%; margin-top: 20px;"></div>
+    <div class="page"><span class="glow-text">Aqlligim Asalim 🌸</span><img src="https://i.postimg.cc/0yFZ44gW/evolution-of-meridas-art-style-in-disney-princess-franchise-v0-4g01x6ejr8hd1-removebg-preview.png" style="max-width: 100%; margin-top: 20px;"></div>
+    <div class="page"><span class="glow-text">Ha buni qilish oson bomadi lekin seni oldingda bu arzimas narsa ❤️</span><br><img src="https://i.postimg.cc/cJ9HbS22/20240806-105133-750344-it-takes-two-series-action-figure-figurine-pop-mart-us-scene-2-1200x12.png" style="max-width: 100%; margin-top: 20px;"></div>
+    <div class="page"><span class="glow-text">Sen haqingda har doim qayg;uradigan o'sha – MEN</span><img src="https://i.postimg.cc/gjnLHXL5/Chat-GPT-Image-4-2025-00-00-06-removebg-preview.png" style="max-width: 70%; margin-top: 20px;"></div>
 
     <button onclick="nextPage()">Próximo</button>
   </div>
 
+  <div id="finalMessage">
+    Tomosha qilganiz uchun rahmat<br><br>Tugadi 🎉
+  </div>
+
   <script>
-    // Heart Animation
     for (let i = 0; i < 30; i++) {
       const heart = document.createElement('div');
       heart.className = 'heart';
@@ -185,13 +197,18 @@
     }
 
     const startBtn = document.getElementById("startBtn");
+    const introTitle = document.getElementById("introTitle");
     const introVideo = document.getElementById("introVideo");
+    const finalVideo = document.getElementById("finalVideo");
     const introDiv = document.getElementById("intro");
     const mainContent = document.getElementById("main");
     const bgMusic = document.getElementById("bgMusic");
+    const finalMsg = document.getElementById("finalMessage");
 
     startBtn.addEventListener("click", () => {
       startBtn.style.display = "none";
+      introTitle.style.display = "none";
+      introDiv.style.background = "white";
       introVideo.style.display = "block";
       introVideo.muted = false;
       introVideo.play();
@@ -206,7 +223,6 @@
       }, 2000);
     });
 
-    // Pages
     const pages = document.querySelectorAll(".page");
     let current = 0;
     function nextPage() {
@@ -216,8 +232,18 @@
         pages[current].classList.add("active");
       } else {
         document.querySelector("#main button").style.display = "none";
+        bgMusic.pause();
+        mainContent.style.display = "none";
+        document.body.style.background = "black";
+        finalVideo.style.display = "block";
+        finalVideo.play();
       }
     }
+
+    finalVideo.addEventListener("ended", () => {
+      finalVideo.style.display = "none";
+      finalMsg.style.display = "flex";
+    });
   </script>
 </body>
 </html>
